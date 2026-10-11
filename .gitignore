@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+# rebuilt results from local source data are never committed
+results/local/
+data/
+*.sqlite
+*.jsonl
+!tests/fixtures/*.jsonl
