@@ -1,0 +1,14 @@
+{
+  // One-click check: open in Codespaces, then run `python -m pytest -q` (no network, no data).
+  "name": "judge-decision-stability",
+  // 3.12 is one of the two versions the CI matrix tests.
+  "build": { "dockerfile": "Dockerfile" },
+  // sshd lets `gh codespace ssh` reach the container from a terminal.
+  "features": { "ghcr.io/devcontainers/features/sshd:1": {} },
+  "postCreateCommand": "pip install -q -e '.[test]'",
+  "customizations": {
+    "codespaces": { "openFiles": ["README.md"] },
+    "vscode": { "extensions": ["ms-python.python"] }
+  },
+  "hostRequirements": { "cpus": 2 }
+}

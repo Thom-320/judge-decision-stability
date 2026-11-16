@@ -1,6 +1,7 @@
 # judge-decision-stability
 
 [![tests](https://github.com/Thom-320/judge-decision-stability/actions/workflows/tests.yml/badge.svg)](https://github.com/Thom-320/judge-decision-stability/actions/workflows/tests.yml)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Thom-320/judge-decision-stability?quickstart=1)
 
 When an LLM judge scores a system, someone then makes a decision: the system passes or fails a
 safety threshold, or system A is ranked above system B. This repository measures how often that
