@@ -1,0 +1,26 @@
+name: reproduce
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.16"
+      - name: Install
+        id: install
+        run: python -m pip install -e ".[test]"
+      - name: Test
+        run: pytest -q
+      - name: Reproduce README figures offline
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: bash scripts/reproduce_offline.sh
